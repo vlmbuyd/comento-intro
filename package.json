@@ -1,0 +1,16 @@
+{
+  "name": "comento",
+  "version": "1.0.0",
+  "description": "직무 부트캠프 '코멘토' 수강 중 수행한 과제를 모아둔 모노레포입니다. <br/> 주차별 과제 소스 코드와 관련 산출물을 포함하고 있습니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch .:. --style expanded"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}
