@@ -1,0 +1,23 @@
+// --- Color Palette ---
+$teal-500: #0ab6ab;
+
+$white: #ffffff;
+$gray-50: #f5f5f5;
+$gray-500: #7a7777;
+$gray-800: #201f1f;
+$gray-900: #151515;
+$black: #000000;
+
+// --- Component Theme ---
+
+// App
+$color-primary: $teal-500;
+
+// Typography
+$text-black: $black;
+$text-primary: $gray-50;
+$text-disabled: $gray-500;
+
+// Background
+$bg-app: $gray-900;
+$bg-card: $gray-800;
