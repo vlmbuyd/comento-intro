@@ -14,7 +14,7 @@ $flex-map: (
 }
 
 // flexbox mixin 모음
-// 사용 예시 : @include flexbox(start, around);
+// 사용 예시 : @include flex(start, around);
 @mixin flex($justify-content: center, $align-items: center) {
   display: flex;
   justify-content: _get-flex-value($justify-content);

@@ -1,4 +1,4 @@
-@use '../styles/base/reset';
-@use '../styles/base/variables';
+@forward '../../styles/base/reset';
+@forward '../../styles/base/variables';
 
-@use '../styles/mixins/mixins';
+@forward '../../styles/mixins/mixins';

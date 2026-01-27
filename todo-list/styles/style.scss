@@ -1,0 +1,8 @@
+@use './main' as *;
+
+.container {
+  @include flex(center, center);
+  width: 100dvh;
+  height: 100vh;
+  background-color: skyblue;
+}
