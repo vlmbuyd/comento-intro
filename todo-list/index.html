@@ -7,6 +7,23 @@
     <title>Todo List</title>
   </head>
   <body>
-    <div class="container"><h1>Todo List</h1></div>
+    <div class="container">
+      <header><h1>Todo List</h1></header>
+
+      <main>
+        <div class="date-wrapper">
+          <strong class="date-wrapper__day">Today</strong>
+          <span class="date-wrapper__full-date"></span>
+        </div>
+
+        <ul class="todo-list"></ul>
+      </main>
+
+      <button type="button" class="icon-button todo__add-button">
+        <img src="./assets/plus.svg" alt="todo-add-button" />
+      </button>
+    </div>
+
+    <script src="./app.js"></script>
   </body>
 </html>
