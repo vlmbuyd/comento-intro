@@ -22,13 +22,13 @@ const render = () => {
   const htmlString = todos.map(
     (todo) => `
         <li class="todo ${todo.done ? 'done' : ''}" data-id="${todo.id}">
-            <button type="button" class="icon-button todo__status-button">
+            <button type="button" class="icon-button todo__status-button" data-type="status">
               <img src="./assets/${
                 todo.done ? 'done.svg' : 'todo.svg'
               }" alt="todo-status-button" />
             </button>
             <p class="todo__content">${todo.content}</p>
-            <button type="button" class="icon-button todo__delete-button">
+            <button type="button" class="icon-button todo__delete-button" data-type="delete">
               <img src="./assets/delete.svg" alt="todo-delete-button" />
             </button>
         </li>
@@ -39,17 +39,30 @@ const render = () => {
 };
 render();
 
-// 투두 상태 변경
-todoListEl.addEventListener('click', (e) => {
-  const statusBtnEl = e.target.closest('.todo__status-button');
-
-  if (!statusBtnEl) return;
-
+// CRUD
+const toggleTodoState = (statusBtnEl) => {
   const li = statusBtnEl.closest('li');
   const todoId = li.dataset.id;
 
   const clickedTodo = todos.find((todo) => todo.id === Number(todoId));
   clickedTodo.done = !clickedTodo.done;
-  li.classList.toggle('done');
+};
+
+const deleteTodo = (deleteBtnElm) => {
+  const li = deleteBtnElm.closest('li');
+  const todoId = li.dataset.id;
+
+  todos = todos.filter((todo) => todo.id !== Number(todoId));
+};
+
+todoListEl.addEventListener('click', (e) => {
+  const statusBtnEl = e.target.closest('.todo__status-button');
+  const deleteBtnEl = e.target.closest('.todo__delete-button');
+
+  if (!statusBtnEl && !deleteBtnEl) return;
+
+  if (statusBtnEl) toggleTodoState(statusBtnEl); // 투두 상태 변경
+  else if (deleteBtnEl) deleteTodo(deleteBtnEl); // 투두 삭제
+
   render();
 });
