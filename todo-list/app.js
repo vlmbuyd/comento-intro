@@ -38,3 +38,18 @@ const render = () => {
   todoListEl.innerHTML = htmlString.join('');
 };
 render();
+
+// 투두 상태 변경
+todoListEl.addEventListener('click', (e) => {
+  const statusBtnEl = e.target.closest('.todo__status-button');
+
+  if (!statusBtnEl) return;
+
+  const li = statusBtnEl.closest('li');
+  const todoId = li.dataset.id;
+
+  const clickedTodo = todos.find((todo) => todo.id === Number(todoId));
+  clickedTodo.done = !clickedTodo.done;
+  li.classList.toggle('done');
+  render();
+});
