@@ -1,8 +1,97 @@
 @use './main' as *;
 
-.container {
+body {
   @include flex(center, center);
-  width: 100dvh;
+  width: 100vw;
   height: 100vh;
-  background-color: skyblue;
+  background-color: #333333;
+}
+
+.container {
+  position: relative;
+  width: 430px;
+  height: 100vh;
+  border-radius: 30px;
+  background-color: $bg-app;
+}
+
+header {
+  @include flex(center, start);
+  width: 100%;
+  height: 130px;
+  background-color: $color-primary;
+  border-radius: 30px 30px 0 0;
+
+  h1 {
+    padding-top: 43px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+}
+
+main {
+  @include column-flex(start, start);
+  gap: 27px;
+  flex: 1;
+  padding: 50px 24px 0 24px;
+
+  .date-wrapper {
+    @include column-flex(start, start);
+
+    &__day {
+      font-size: 20px;
+      font-weight: 700;
+      color: $white;
+    }
+    &__full-date {
+      font-size: 14px;
+      font-weight: 400;
+      color: $text-disabled;
+    }
+  }
+
+  .todo-list {
+    @include column-flex(start, start);
+    width: 100%;
+    gap: 8px;
+  }
+
+  .todo {
+    @include flex(start, center);
+    gap: 8px;
+    width: 100%;
+    height: 60px;
+    padding: 0 16px 0 13px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 400;
+    color: $text-primary;
+    background-color: $bg-card;
+
+    &.done {
+      color: $text-disabled;
+      text-decoration: line-through;
+    }
+
+    &__content {
+      flex: 1;
+    }
+  }
+
+  .icon-button {
+    @include flex(center, center);
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.todo__add-button {
+  position: absolute;
+  bottom: 50px;
+  right: 24px;
+  @include flex(center, center);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: $color-primary;
 }
